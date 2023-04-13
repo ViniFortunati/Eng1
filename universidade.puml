@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+actor Aluno as al
+
+package Profissionais {
+  actor Professor as pro 
+  actor Coordenador as coo 
+  actor Diretor as di 
+  actor Faxineiro as fax 
+  actor "Equipe de TI" as ti 
+  actor "Atendente geral" as atg 
+
+}
