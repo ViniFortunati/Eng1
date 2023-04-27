@@ -1,13 +1,54 @@
 @startuml
 left to right direction
-actor Aluno as al
 
-package Profissionais {
-  actor Professor as pro 
-  actor Coordenador as coo 
-  actor Diretor as di 
-  actor Faxineiro as fax 
-  actor "Equipe de TI" as ti 
-  actor "Atendente geral" as atg 
+package Operacional {
+  actor Faxineiro as f
+  actor Vigilante as vi 
+  actor Funcionario as fi
+  actor Financeiro as fr
 
+  f --> fi
+  fr --> fi
+  vi --> fi
 }
+
+package Academicos {
+  actor Professor as p
+  actor Reitor as r
+  actor Coordenador as c
+
+  c --> p
+  r --> p
+}
+
+package Universidade {
+  actor Aluno as al
+  usecase "Ministrar aula" as UC1
+  usecase "Orientação de matricula" as UC2
+  usecase "Administrar curso" as UC3
+  usecase "Administrar Universidade" as UC4
+  usecase "Representar Universidade" as UC5
+  usecase "Prestar Serviço" as UC6
+  usecase "Atender Universidade" as UC7
+  usecase "Gerenciar Receitas e Despesas" as UC8
+  usecase "Pagar" as UC9
+  usecase "Receber" as UC10
+  usecase "Assistir aula" as UC11
+
+  al -- UC9
+  al -- UC11
+  UC11 .> UC1 : inlcude
+  UC9 --> UC8
+  UC10 --> UC8
+  UC7 --> UC6
+}
+
+p -- UC1
+c -- UC2
+c -- UC3
+r -- UC4
+r -- UC5
+fi -- UC6
+fr -- UC8
+
+@enduml
