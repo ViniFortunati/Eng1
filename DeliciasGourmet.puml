@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+
+package Gestores {
+actor "Gerente de Compras" as gc 
+actor "Supervisora de Estoque" as se 
+actor "Coordenador de Produção" as cp 
+}
+
+package produção {
+    actor "Analista de Qualidade" as aq 
+    actor "Vendedor" as v
+}
+usecase "comprar novos materiais e ingredientes" as UC1
+Usecase "Negociação" as UC2
+
+usecase "Gerencia de estoque" as UC3
+usecase "Conferencia de pedidos" as UC4
